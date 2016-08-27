@@ -20,6 +20,9 @@ var addInfo = function(){
   salary : Number(document.getElementById('salary').value)
 };//end of employeeInfo object
 
+//forin loop that makes sure all fields are filled in and clears inputs
+
+
 // console.log(employeeInfo);
   employeeList.push(employeeInfo);
   // console.log(employeeList);
@@ -34,13 +37,13 @@ var empDisplay=function(){
   document.getElementById('empDiv').innerHTML ="";
   // console.log('in empDisplay');
   console.log(employeeList);
-  var totalSalary;
   for (var i = 0; i < employeeList.length; i++) {
     var emp=employeeList[i];
     var toHtml='<h2>'+emp.firstName+' '+emp.lastName+'</h2><br>ID Number: '+emp.ID+'</br><br>Title: '+emp.title+'</br><br>Salary: '+emp.salary+'</br>'
+    var fireButton='<button onclick="fire()">Fire this jabroni</button>';
+
     document.getElementById('empDiv').innerHTML += toHtml;
-    var fireButton='<button onclick="fire">Fire this jabroni</button>';
-  document.getElementById('empDiv').innerHTML +=fireButton
+    document.getElementById('empDiv').innerHTML +=fireButton;
     }//end of loop
 salaryCalculator();
 };//end of empDisplay
@@ -51,16 +54,15 @@ var salaryCalculator=function(){
     sal+=Number(employeeList[i].salary);
     console.log(sal);
   }//end of loop
-    var toHtml= '<br>Total Monthy Salary: '+sal/12+'</br>'
+    var toHtml= '<br id=salaryTicker>Total Monthy Salary: '+sal/12+'</br>'
     document.getElementById('empDiv').innerHTML += toHtml;
 
 };//end of salaryCalculator
 
 
-var fire=function(){
-  var fireButton=<button onclick="fire">Fire this jabroni</button>
-document.getElementById('empDiv').innerHTML +=fireButton
-
-
+var fire=function(index){
+// console.log(employeeList[index].name+' has been fired');
+employeeList.splice(index,1);
+empDisplay();
 };//end of fire
 //function that removes employee info from the DOM
