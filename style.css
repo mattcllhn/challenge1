@@ -6,13 +6,15 @@ input{
   margin:10px 10px 10px 10px;
   display:list-item;
   display:block;
-  width:
+  width:25%}
+  form h3{
+    margin:10%;
+  }
 
-}
 button{
   margin-left: 15%;
 }
 #inputForm{
-background-color: gray;
-border:2px;
+background-color: white;
+border:2px black;
 }
