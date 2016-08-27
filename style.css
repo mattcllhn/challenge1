@@ -1,20 +1,24 @@
 body{
-  background-color: #669900;
+  background-color: #ccffff;
 }
 input{
   padding: 10px 10px 10px 10px;
   margin:10px 10px 10px 10px;
   display:list-item;
   display:block;
-  width:25%}
+  width:300px}
   form h3{
     margin:10%;
   }
 
 button{
-  margin-left: 15%;
+  margin: 0 10px 0 350px;
 }
 #inputForm{
 background-color: white;
 border:2px black;
+}
+br{
+  background-color:  #ccffff
+;
 }

@@ -5,25 +5,25 @@
 // Job Title
 // Annual Salary
 
-console.log("test,test");
+// console.log("test,test");
 var employeeList=[];
 var documentIds=['first','last','id','title','salary'];
                                                 //creates an object out of employe info,adds to array, clears inputs
 var addInfo = function(){
-  console.log('in addInfo');
+  // console.log('in addInfo');
 
   var employeeInfo={
   firstName : document.getElementById('first').value,
   lastName : document.getElementById('last').value,
   ID : document.getElementById('id').value,
   title : document.getElementById('title').value,
-  salary : document.getElementById('salary').value
+  salary : Number(document.getElementById('salary').value)
 };//end of employeeInfo object
 
 // console.log(employeeInfo);
   employeeList.push(employeeInfo);
   // console.log(employeeList);
-                                                      // clear inputs
+                                                      // clears inputs
   for (var i = 0; i < documentIds.length; i++) {
   document.getElementById(documentIds[i]).value=""
   }//end of clear inputs
@@ -32,18 +32,35 @@ var addInfo = function(){
                                                   //appends information to the DOM
 var empDisplay=function(){
   document.getElementById('empDiv').innerHTML ="";
-
   // console.log('in empDisplay');
   console.log(employeeList);
+  var totalSalary;
   for (var i = 0; i < employeeList.length; i++) {
-    var emp=employeeList[i]
+    var emp=employeeList[i];
     var toHtml='<h2>'+emp.firstName+' '+emp.lastName+'</h2><br>ID Number: '+emp.ID+'</br><br>Title: '+emp.title+'</br><br>Salary: '+emp.salary+'</br>'
     document.getElementById('empDiv').innerHTML += toHtml;
-  }//end of loop
+    var fireButton='<button onclick="fire">Fire this jabroni</button>';
+  document.getElementById('empDiv').innerHTML +=fireButton
+    }//end of loop
+salaryCalculator();
 };//end of empDisplay
+                                              //takes in salaries and outputs total monthly cost
+var salaryCalculator=function(){
+  var sal=0;
+  for (var i = 0; i < employeeList.length; i++) {
+    sal+=Number(employeeList[i].salary);
+    console.log(sal);
+  }//end of loop
+    var toHtml= '<br>Total Monthy Salary: '+sal/12+'</br>'
+    document.getElementById('empDiv').innerHTML += toHtml;
+
+};//end of salaryCalculator
 
 
+var fire=function(){
+  var fireButton=<button onclick="fire">Fire this jabroni</button>
+document.getElementById('empDiv').innerHTML +=fireButton
 
 
-//function that calculates salaries and reports monthly total cost
+};//end of fire
 //function that removes employee info from the DOM
